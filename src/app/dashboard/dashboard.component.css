@@ -1,0 +1,68 @@
+.dashboard{
+    background-image: url('../../assets/images/home.jpg');
+    background-image: url('../../assets/images/planeflying.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0px 0px 3% 0px;
+}
+
+.dashboard h1 {
+    color: #843434;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    vertical-align: middle;
+    padding-top: 10%;
+    font-size: 50px;
+}
+
+.dashboard .para {
+    text-align: center;
+    color: #843434;
+}
+
+.searchcrieria{
+    border: 3px solid #96502f;
+    border-radius: 30px;
+    padding: 2px;
+    margin-top: 6%;
+}
+
+.searchcrieriaInner{
+   border: 1px solid #96502f;
+   border-radius: 30px;
+   padding: 20px;
+   background-color: #d09c6bf0;
+   color: #633515;
+   font-weight: 600;
+   font-size: 14px
+}
+
+.columnHeader{
+    color: #8c332f;
+    font-size: 18px;
+}
+
+.columDivider {
+    border-right: 1px groove #ce906c40;
+}
+
+.searchBtn{
+    margin-left: 85%;
+    padding: 20px;
+}
+
+.btn-primary{
+    color: #671a1a;
+    background-color: #ca855db3;
+    border-color: #942222;
+}
+
+.btn-primary:hover{
+    background-color: #c57979;
+}
+
+.btn-primary:active{
+    color: #fff;
+    background-color: #7d3f13;
+    border-color: #bf5800;
+}

@@ -1,0 +1,102 @@
+<app-nav></app-nav>
+
+<div class="dashboard">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1> Book Your Flight With Us</h1>
+      </div>
+    </div>
+    <div class="row gaps">
+      <div class="col-md-12 para">
+        <p>
+          Among all the marvels of modern invention, that with which I am most concerned is, of course, air transportation. Flying
+          is perhaps the most dramatic of recent scientific attainment. In the brief span of thirty-odd years, the world
+          has seen an inventor's dream first materialized by the Wright brothers at Kitty Hawk become an everyday actuality.
+        </p>
+      </div>
+    </div>
+    <div class="row gaps para">
+      <div class="col-md-12">
+        <div class="bookNowBtn">
+          <button class="btn btn-primary" (click)="letsCheck()">
+            Check More Offers !!
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row gaps">
+      <div class="col-md-12">
+        <div class="searchcrieria">
+          <div class="searchcrieriaInner">
+            <div class="row">
+              <div class="col-md-12">
+                <span class="col-md-6">
+                  <input type="checkbox" [(ngModel)]="oneway" (change)="setOneWayOption($event)">
+                  <label>One-way</label>
+                </span>
+                <span class="col-md-6">
+                  <input type="checkbox" [(ngModel)]="twoway" (change)="setTwoWayOption($event)">
+                  <label>Round Trip</label>
+                </span>
+              </div>
+            </div>
+            <div class="row gaps">
+              <div class="col-md-4 columDivider">
+                <div class="destination">
+                  <label class="columnHeader"> Destination </label>
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label> From </label>
+                      <input type="text" class="form-control" [(ngModel)]="from"  />
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label> To </label>
+                      <input type="text" class="form-control" [(ngModel)]="to"  />
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-md-4 columDivider">
+                <div class="date">
+                  <label class="columnHeader"> Date </label>
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label> Check-In </label>
+                      <input type="text" class="form-control" [(ngModel)]="date" />
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label> Check-Out </label>
+                      <input type="text" class="form-control" [disabled]="oneway"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="passengers">
+                  <label class="columnHeader"> Passengers </label>
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label> Adults </label>
+                      <input type="text" class="form-control" />
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label> Children </label>
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                  <button class="btn btn-primary" (click)="getSearchResults()"> Search Flights</button>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

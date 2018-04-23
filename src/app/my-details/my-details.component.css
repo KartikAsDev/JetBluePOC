@@ -1,0 +1,56 @@
+.loginBox{
+    box-shadow: 5px 5px 5px 5px #9e7f3a4d;
+    padding: 30px;
+    background-color: #c5b592;
+    border-radius: 5px;
+    float: right;
+    margin-top: 3%;
+}
+
+.loginBox .loginBtn {
+    margin-top: 10%;
+    width: 100%;
+}
+
+.loginHeader{
+ justify-content: center;
+ color: #866220;
+}
+
+.loginHeader p {
+    font-size: 13px;
+    padding: 0px 5px 0px 5px;
+}
+
+.errorMessage {
+    color: red;
+    font-size: 14px;
+}
+
+.btn-success{
+    color: #fff;
+    background-color: #b98d2f !important;
+    border-color: #a77c28 !important;
+}
+
+.btn-success:hover {
+    background-color: #a77c28 !important;
+}
+
+.btn-success:active{
+    color: #fff;
+    background-color: #7d3f13;
+    border-color: #bf5800;
+}
+
+
+label{
+    color: #843a0e;
+}
+
+.sideText{
+    margin-top: 25%;
+    color: #8c461e;
+    text-align: center;
+    font-family: serif;
+}
