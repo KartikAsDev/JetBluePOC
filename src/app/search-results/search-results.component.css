@@ -17,15 +17,6 @@
 
 /* -------- */
 
-thead{
-    background: #84b5d8;
-}
-
-tbody{
-    background: #84a0b9f2;
-    color: white;
-}
-
-table{
-    margin-top: 2%;
+.mat-header-cell{
+    font-size: 16px;
 }
