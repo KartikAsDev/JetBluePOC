@@ -44,7 +44,7 @@
                     <label class="columnHeader"> Destination </label>
                     <div class="form-group col-md-6">
                       <mat-form-field>
-                        <input matInput placeholder="From" aria-label="From" [matAutocomplete]="auto" [formControl]="fromCtrl" [(ngModel)]="from">
+                        <input matInput placeholder="From" aria-label="From" [matAutocomplete]="auto" name="fromCtrl" [formControl]="fromCtrl" >
                         <mat-autocomplete #auto="matAutocomplete">
                           <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
                             <span>{{ state.name }}</span>
@@ -54,7 +54,7 @@
                     </div>
                     <div class="form-group col-md-6">
                       <mat-form-field>
-                        <input matInput placeholder="To" aria-label="To" [matAutocomplete]="auto" [formControl]="toCtrl" [(ngModel)]="to">
+                        <input matInput placeholder="To" aria-label="To" [matAutocomplete]="auto" name="toCtrl" [formControl]="toCtrl" >
                         <mat-autocomplete #auto="matAutocomplete">
                           <mat-option *ngFor="let state of filteredStates | async" [value]="state.name" >
                             <span>{{ state.name }}</span>

@@ -24,11 +24,11 @@ export class DashboardComponent implements OnInit{
 
   stateCtrl: FormControl;
   filteredStates: Observable<any[]>;
+  fromCtrl = new FormControl();
+  toCtrl = new FormControl();
 
   username: string;
   todayDate: Date;
-  from: string;
-  to: string;
   date: Date = new Date();
   returnDate: Date = new Date();
   oneway: boolean = true;
@@ -60,10 +60,9 @@ export class DashboardComponent implements OnInit{
   }
 
   getSearchResults() {
-    console.log("this.to", this.to, "this droim", this.from);
     let searchCriteria = {
-      from: this.from,
-      to: this.to,
+      from: this.fromCtrl.value,
+      to: this.toCtrl.value,
       date: this.date
     }
     this.dashboardService.getSearchResults();

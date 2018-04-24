@@ -9,7 +9,7 @@ import { DashboardService } from '../dashboard.service';
 export class SearchResultsComponent implements OnInit {
 
   flightsList: any;
-  // searchDate: string;
+  searchDate: string;
   // to: string;
   // from: string;
   searchCriteria: any;
@@ -19,9 +19,6 @@ export class SearchResultsComponent implements OnInit {
   ngOnInit() {
     this.flightsList = this.dashboardService.fetchFlightList();
     this.searchCriteria = this.dashboardService.fetchSearchCriteria();
-    console.log("this.searchCriteria", this.searchCriteria);
-    // this.searchDate = searchCriteria.date;
-    // this.from = searchCriteria.from;
-    // this.to =  searchCriteria.to;
+    this.searchDate =  this.searchCriteria.date != undefined ? this.searchCriteria.date.toString().substring(0,16) : new Date();
   }
 }
