@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MyDetailsComponent } from './my-details/my-details.component';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
@@ -13,7 +13,16 @@ import { NavComponent } from './nav/nav.component';
 import { LoginService } from './login.service';
 import { DashboardService } from './dashboard.service';
 import { SearchResultsComponent } from './search-results/search-results.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material';
+import {MatCardModule} from '@angular/material/card';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatInputModule} from '@angular/material/input';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -28,8 +37,18 @@ import { SearchResultsComponent } from './search-results/search-results.componen
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatRadioModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
     RouterModule.forRoot([
       {
         path: '',

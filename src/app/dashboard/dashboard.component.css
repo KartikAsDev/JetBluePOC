@@ -1,5 +1,4 @@
 .dashboard{
-    background-image: url('../../assets/images/home.jpg');
     background-image: url('../../assets/images/planeflying.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -7,43 +6,42 @@
 }
 
 .dashboard h1 {
-    color: #843434;
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     vertical-align: middle;
     padding-top: 10%;
     font-size: 50px;
+    color: #0a506b;
 }
 
 .dashboard .para {
     text-align: center;
-    color: #843434;
+    font-size: 18px;
+    color: #0a506b;
 }
 
-.searchcrieria{
-    border: 3px solid #96502f;
-    border-radius: 30px;
-    padding: 2px;
-    margin-top: 6%;
+button{
+    color: white !important;
 }
+
 
 .searchcrieriaInner{
-   border: 1px solid #96502f;
-   border-radius: 30px;
+   border-radius: 15px;
    padding: 20px;
-   background-color: #d09c6bf0;
-   color: #633515;
+   background-color: #6ba1d075;
+   color: white;
    font-weight: 600;
    font-size: 14px
 }
 
 .columnHeader{
-    color: #8c332f;
+    color: white;
     font-size: 18px;
 }
 
 .columDivider {
     border-right: 1px groove #ce906c40;
+    margin-top: 2%;
 }
 
 .searchBtn{
@@ -51,18 +49,29 @@
     padding: 20px;
 }
 
-.btn-primary{
-    color: #671a1a;
-    background-color: #ca855db3;
-    border-color: #942222;
+label{
+    font-weight: 100;
 }
 
-.btn-primary:hover{
-    background-color: #c57979;
-}
+.example-h2 {
+    margin: 10px;
+  }
+  
+  .example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .example-margin {
+    margin: 0 10px;
+  }
 
-.btn-primary:active{
-    color: #fff;
-    background-color: #7d3f13;
-    border-color: #bf5800;
-}
+  button{
+      background-color: blue !important;
+  }
+
+  .mat-card{
+      background: transparent;
+  }

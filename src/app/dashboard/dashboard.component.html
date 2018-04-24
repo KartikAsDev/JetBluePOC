@@ -19,7 +19,7 @@
     <div class="row gaps para">
       <div class="col-md-12">
         <div class="bookNowBtn">
-          <button class="btn btn-primary" (click)="letsCheck()">
+          <button mat-raised-button color="primary" class="btn btn-primary" (click)="letsCheck()">
             Check More Offers !!
           </button>
         </div>
@@ -27,76 +27,99 @@
     </div>
     <div class="row gaps">
       <div class="col-md-12">
-        <div class="searchcrieria">
-          <div class="searchcrieriaInner">
-            <div class="row">
-              <div class="col-md-12">
-                <span class="col-md-6">
-                  <input type="checkbox" [(ngModel)]="oneway" (change)="setOneWayOption($event)">
-                  <label>One-way</label>
-                </span>
-                <span class="col-md-6">
-                  <input type="checkbox" [(ngModel)]="twoway" (change)="setTwoWayOption($event)">
-                  <label>Round Trip</label>
-                </span>
-              </div>
-            </div>
-            <div class="row gaps">
-              <div class="col-md-4 columDivider">
-                <div class="destination">
-                  <label class="columnHeader"> Destination </label>
-                  <div class="row">
-                    <div class="form-group col-md-6">
-                      <label> From </label>
-                      <input type="text" class="form-control" [(ngModel)]="from"  />
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label> To </label>
-                      <input type="text" class="form-control" [(ngModel)]="to"  />
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              <div class="col-md-4 columDivider">
-                <div class="date">
-                  <label class="columnHeader"> Date </label>
-                  <div class="row">
-                    <div class="form-group col-md-6">
-                      <label> Check-In </label>
-                      <input type="text" class="form-control" [(ngModel)]="date" />
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label> Check-Out </label>
-                      <input type="text" class="form-control" [disabled]="oneway"/>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="passengers">
-                  <label class="columnHeader"> Passengers </label>
-                  <div class="row">
-                    <div class="form-group col-md-6">
-                      <label> Adults </label>
-                      <input type="text" class="form-control" />
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label> Children </label>
-                      <input type="text" class="form-control" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
+        <mat-card>
+          <mat-card-content>
+            <div class="searchcrieriaInner">
+              <div class="row">
                 <div class="col-md-12">
-                  <button class="btn btn-primary" (click)="getSearchResults()"> Search Flights</button>
+                  <mat-radio-group [(ngModel)]="oneway">
+                    <mat-radio-button (change)="setWayOption($event)" [value]=false>Round Trip</mat-radio-button>
+                    <mat-radio-button (change)="setWayOption($event)" [value]=true>One-way</mat-radio-button>
+                  </mat-radio-group>
                 </div>
               </div>
-          </div>
-        </div>
+              <div class="row gaps">
+                <div class="col-md-4 columDivider">
+                  <div class="destination">
+                    <label class="columnHeader"> Destination </label>
+                    <div class="form-group col-md-6">
+                      <mat-form-field>
+                        <input matInput placeholder="From" aria-label="From" [matAutocomplete]="auto" [formControl]="fromCtrl" [(ngModel)]="from">
+                        <mat-autocomplete #auto="matAutocomplete">
+                          <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
+                            <span>{{ state.name }}</span>
+                          </mat-option>
+                        </mat-autocomplete>
+                      </mat-form-field>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <mat-form-field>
+                        <input matInput placeholder="To" aria-label="To" [matAutocomplete]="auto" [formControl]="toCtrl" [(ngModel)]="to">
+                        <mat-autocomplete #auto="matAutocomplete">
+                          <mat-option *ngFor="let state of filteredStates | async" [value]="state.name" >
+                            <span>{{ state.name }}</span>
+                          </mat-option>
+                        </mat-autocomplete>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 columDivider">
+                  <div class="date">
+                    <label class="columnHeader"> Travel Date </label>
+                    <div class="form-group col-md-6">
+                      <mat-form-field>
+                        <input matInput [matDatepicker]="myDatepicker" placeholder="Travel Date" [(ngModel)]="date">
+                        <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+                        <mat-datepicker #myDatepicker></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <mat-form-field>
+                        <input matInput [matDatepicker]="returnDatepicker" placeholder="Return Date" [(ngModel)]="returnDate" disabled={{oneway}}>
+                        <mat-datepicker-toggle matSuffix [for]="returnDatepicker"></mat-datepicker-toggle>
+                        <mat-datepicker #returnDatepicker></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="passengers">
+                    <label class="columnHeader"> Passengers </label>
+                    <div class="form-group col-md-6">
+                      <!-- <mat-form-field>
+                        <input matInput placeholder="Check-In" type="text" [(ngModel)]="date">
+                      </mat-form-field> -->
+                      <mat-form-field>
+                        <mat-select placeholder="No. of Adults">
+                          <mat-option *ngFor="let passenger of passengers" [value]="passenger.value">
+                            {{ passenger.value }}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <mat-form-field>
+                          <mat-select placeholder="No. of Childs">
+                            <mat-option *ngFor="let passenger of passengers" [value]="passenger.value">
+                              {{ passenger.value }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <button mat-raised-button class="btn btn-primary" (click)="getSearchResults()"> Search Flights</button>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
       </div>
     </div>
+
   </div>
 </div>

@@ -1,5 +1,8 @@
 .navbar-dark {
-    background-color: #a57e58f7 !important;
+    background-color: #588da5f7  !important;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
 }
 
 .rightNav {
