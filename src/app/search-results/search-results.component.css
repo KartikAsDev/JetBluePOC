@@ -7,7 +7,7 @@
 }
 
 .dashboard h4 {
-    color: #165a96f2;
+    color: #ffffff;
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     vertical-align: middle;
@@ -19,4 +19,19 @@
 
 .mat-header-cell{
     font-size: 16px;
+}
+
+button{
+    float:  right;
+    margin-top: 2%;
+    margin-right: 2%
+}
+
+.mat-table{
+    background-color: #0476b5a8;
+    border-radius: 5px;
+}
+
+.mat-cell{
+    color: #e6f5fdba;
 }

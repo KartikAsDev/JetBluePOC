@@ -12,11 +12,12 @@ export class LoginService {
 
   authenticate(user) {
     this.userData= user;
+    localStorage.setItem("UserName", JSON.stringify(user));
     this.route.navigateByUrl('dashboard');
   }
 
   fetchUserData() {
-    return this.userData;
+    return localStorage.getItem('UserName');
   }
 
   getSearchResults() {

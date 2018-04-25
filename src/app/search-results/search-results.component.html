@@ -5,19 +5,13 @@
     <div class="row">
       <h4> Flights for you on
         <b> {{searchDate}}</b>, from
-        <b>{{searchCriteria.from}}</b> to
-        <b>{{searchCriteria.to}}</b>
+        <b>{{searchData.from}}</b> to
+        <b>{{searchData.to}}</b>
       </h4>
     </div>
     <div class="row">
       <div class="col-md-12">
         <div class="example-container mat-elevation-z8">
-          <!-- <div class="example-header">
-            <mat-form-field>
-              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-            </mat-form-field>
-          </div> -->
-
           <mat-table #table [dataSource]="dataSource">
 
             <!-- Name Column -->
@@ -40,15 +34,22 @@
 
             <!-- Symbol Column -->
             <ng-container matColumnDef="duration">
-                <mat-header-cell *matHeaderCellDef> Duration </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.duration}} </mat-cell>
-              </ng-container>
+              <mat-header-cell *matHeaderCellDef> Duration </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.duration}} </mat-cell>
+            </ng-container>
 
-              <!-- Symbol Column -->
+            <!-- Symbol Column -->
             <ng-container matColumnDef="price">
-                <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
-              </ng-container>
+              <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="check">
+              <mat-header-cell *matHeaderCellDef> Select </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                <mat-checkbox class="example-margin" (click)="selectItem(element, $event)">Select</mat-checkbox>
+              </mat-cell>
+            </ng-container>
 
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
@@ -56,5 +57,58 @@
         </div>
       </div>
     </div>
+    <div class="row" *ngIf="flightSelected">
+      <div class="row">
+        <h4> Your selection for,
+          <b> {{searchDate}}</b>, from
+          <b>{{searchData.from}}</b> to
+          <b>{{searchData.to}}</b>
+        </h4>
+      </div>
+      <div class="col-md-12">
+        <div class="example-container mat-elevation-z8">
+          <mat-table #table [dataSource]="matSelectItems">
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="flightNumber">
+              <mat-header-cell *matHeaderCellDef> Departure </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.flight_number}} </mat-cell>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="departure">
+              <mat-header-cell *matHeaderCellDef> Arrival </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.departure}} </mat-cell>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="arrival">
+              <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.arrival}} </mat-cell>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="duration">
+              <mat-header-cell *matHeaderCellDef> Duration </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.duration}} </mat-cell>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="price">
+              <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="selectDisplayedColumnns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: selectDisplayedColumnns;"></mat-row>
+          </mat-table>
+        </div>
+        <!-- <div class="row">
+            <div class="col-md-12"> -->
+              <button mat-raised-button class="btn btn-primary" (click)="proceedToPayment()">Proceed</button>
+            <!-- </div>
+          </div> -->
+      </div>
+      </div>
   </div>
 </div>

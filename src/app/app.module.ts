@@ -24,8 +24,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTableModule} from '@angular/material/table';
-import { AngularWebStorageModule } from 'angular-web-storage';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -53,7 +52,7 @@ import { AngularWebStorageModule } from 'angular-web-storage';
     MatNativeDateModule,
     MatSelectModule,
     MatTableModule,
-    AngularWebStorageModule,
+    MatCheckboxModule,
     RouterModule.forRoot([
       {
         path: '',

@@ -14,6 +14,7 @@ export class DashboardService {
     this.http.get('http://localhost:3000/flights')
     .map((response) => {
       this.flightsList = response.json();
+      localStorage.setItem('flightList', JSON.stringify(this.flightsList));
       response.json();
       this.route.navigateByUrl('searchResults');
     })
@@ -21,16 +22,15 @@ export class DashboardService {
   }
 
   fetchFlightList() {
-    return this.flightsList;
+    return localStorage.getItem('flightList');
   }
 
   updateSearchCriteria(searchCriteria) {
     this.searchCriteria = searchCriteria;
-    console.log("This is Search Criteria", this.searchCriteria);
+    localStorage.setItem('searchCriteria', JSON.stringify(this.searchCriteria));
   } 
 
   fetchSearchCriteria() {
-    console.log("This is search Criteria", this.searchCriteria);
-    return this.searchCriteria;
+    return localStorage.getItem('searchCriteria');
   }
 }

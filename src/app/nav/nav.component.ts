@@ -14,7 +14,7 @@ export class NavComponent implements OnInit {
 
   ngOnInit() {
     let userData = this.loginService.fetchUserData();
-    this.username = userData.username;
+    this.username = JSON.parse(userData).username;
   }
 
   logOff() {
