@@ -24,6 +24,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTableModule} from '@angular/material/table';
+import { AngularWebStorageModule } from 'angular-web-storage';
+
 
 @NgModule({
   declarations: [
@@ -51,6 +53,7 @@ import {MatTableModule} from '@angular/material/table';
     MatNativeDateModule,
     MatSelectModule,
     MatTableModule,
+    AngularWebStorageModule,
     RouterModule.forRoot([
       {
         path: '',
